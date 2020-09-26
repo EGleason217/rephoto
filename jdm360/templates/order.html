@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bodywrapper">
+        {% if request.session.name is defined %}
+        {% include 'loginheader.html' %}
+        {% else %}
+        {% include 'header.html' %}
+        {% endif %}
+        <h1>Hello {{request.session.name}} Please Input Your Order Below:</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-12" id="orderadd">
+                    <form action="/placeorder" method="post">
+                        {% csrf_token %}
+                        <h2>Address:</h2>
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address"><br>
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city"><br>
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state"><br>
+                        <label for="zip">Zip Code</label>
+                        <input type="int" id="zip" name="zipcode"><br>
+                </div>
+                <div class="col-md-6 col-12" id="orderpack">
+                    <h2>Package Choice</h2>
+                    <label for="bronze">Bronze</label>
+                    <input type="radio" name="package" id="bronze" value="bronze">
+                    <label for="silver">Silver</label>
+                    <input type="radio" name="package" id="silver" value="silver">
+                    <label for="gold">Gold</label>
+                    <input type="radio" name="package" id="gold" value="gold">
+                    <label for="platinum">Platinum</label>
+                    <input type="radio" name="package" id="platinum" value="platinum"><br>
+                    <label for="date">Date Requesting Photo Shoot:</label>
+                    <input type="datetime-local" name="date" id="date"><br>
+                    <input type="submit" class="btn btn-success" id="ordbtn" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.dir(document);
+    </script>
+</body>
+</html>

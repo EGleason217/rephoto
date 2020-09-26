@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <title>Services</title>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABZlsnnRSzRttTO1-rn_dzUGj3PENUzS4&callback=initMap&libraries=&v=weekly"
+    defer></script>
+</head>
+
+<div class="bodywrapper">
+  {% if request.session.name is defined %}
+  {% include 'loginheader.html' %}
+  {% else %}
+  {% include 'header.html' %}
+  {% endif %}
+
+  <body>
+    <!--The div element for the map -->
+
+    <body onload="initMap()">
+      <div>
+        <h4>This order is for: </h4>
+        <h4 id="address">{{address}}, {{city}}, {{state}}</h4>
+      </div>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Photographer</th>
+            <th scope="col">Package</th>
+            <th scope="col">Date of Shoot</th>
+            <th scope='col'>Status</th>
+            <th scope="col">Client</th>
+            <th scope="col">Client's Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{current_order.photographer}}</td>
+            <td>{{current_order.package}}</td>
+            <td>{{current_order.orderdate}}</td>
+            <td>{{current_order.status}}</td>
+            <td>{{current_order.client.fname}} {{current_order.client.lname}}</td>
+            <td>{{current_order.client.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="map"></div>
+    </body>
+
+
+    <script>
+      var geocoder;
+      var map;
+      function initMap() {
+        codeAddress();
+        var latlng = new google.maps.LatLng(26.1224, -80.1373);
+        var mapOptions = {
+          zoom: 19,
+          center: latlng,
+          mapTypeId: 'satellite'
+        }
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      }
+
+      function codeAddress() {
+        geocoder = new google.maps.Geocoder();
+        var address = document.getElementById('address').innerHTML;
+        geocoder.geocode({ 'address': address }, function (results, status) {
+          if (status == 'OK') {
+            console.log(results);
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+  </body>
+
+  <table class="table table-dark">
+    <tbody>
+      <tr>
+        <td>
+          <a href="/edit/{{current_order.id}}"><b class="btn btn-success">Edit Order</b></a>
+          <a href="/payorder/{{current_order.id}}"><b class="btn btn-success">Mark Paid</b></a>
+          <a href="/completed/{{current_order.id}}"><b class="btn btn-success">Job Completed</b></a>
+          <a href="/deleteorder/{{current_order.id}}"><b class="btn btn-danger">Delete Order</b></a>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+</html>

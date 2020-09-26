@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Edit</title>
+</head>
+
+<body>
+    <div class="bodywrapper">
+        {% if request.session.name is defined %}
+                {% include 'loginheader.html' %}
+            {% else %}
+                {% include 'header.html' %}
+        {% endif %}
+            <h1>Edit Order for {{current_order.location.address}} on {{current_order.orderdate}}</h1>
+    <form action="/updateorder/{{current_order.id}}" method="post">
+        {% csrf_token %}
+        <h1>Hello {{request.session.name}}</h1>
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="{{current_order.location.address}}">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="{{current_order.location.city}}">
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" placeholder="{{current_order.location.state}}">
+        <label for="zip">Zip Code</label>
+        <input type="int" id="zip" name="zipcode" placeholder="{{current_order.location.zipcode}}">
+        <h2>Package Choice</h2>
+        <select id="package" name="package">
+            {% if current_order.package == 'bronze' %}
+            <option value="bronze" selected>Bronze</option>
+            {% endif %}
+            <option value="bronze">Bronze</option>
+            {% if current_order.package == 'silver' %}
+            <option value="silver" selected>Silver</option>
+            {% endif %}
+            <option value="silver" >Silver</option>
+            {% if current_order.package == 'gold' %}
+            <option value="gold" selected>Gold</option>
+            {% endif %}
+            <option value="gold">Gold</option>
+            {% if current_order.package == 'platinum' %}
+            <option value="platinum" selected>Platinum</option>
+            {% endif %}
+            <option value="platinum">Platinum</option>
+        </select>
+        <h3>Assign Photographer:</h3>
+        <select name="photographer" id="photographer">
+            {% for photographer in photographers %}
+                <option value={{photographer.fname}}>{{photographer.fname}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</body>

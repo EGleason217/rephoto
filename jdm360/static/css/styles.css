@@ -1,0 +1,133 @@
+  .bodywrapper{
+      width: 80%;
+      margin: auto;
+  }
+
+  .jumbotron{
+      width: 40%;
+      background-color: transparent;
+      margin-left: 20%;
+      margin-top: 30px;
+  }
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: fit-content;
+}
+
+  .jumbotron .container form{
+    display: inline-block;
+    vertical-align: middle;
+    background-color: blanchedalmond;
+    border: 5px black solid;
+    padding: 5px;
+  }
+
+  .wrapper{
+      width: 250;
+      margin: auto;
+      margin-left: 30%;
+      display: inline;
+  }
+
+  #coname{
+      text-align: center;
+      width: 33%;
+      margin-top: 50px;
+      margin-left: 50px;
+      display: inline-block;
+      background-color: antiquewhite; opacity: 0.6;
+  }
+#coname h1,h2{
+    color:black;
+    font-weight: bold;
+}
+
+
+#gallery{
+    display: flex;
+    margin-top: 1%;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+#gal1{
+    color: black;
+    background-color: #f0f1f2;
+    padding: 5px 10px;
+    width: fit-content;
+    margin-top: 3%;
+    margin-left: 45%;
+}
+#registration, #login {
+    width: fit-content;
+    margin-left: 20%;
+    display: inline-block;
+    padding: 25px;
+    vertical-align: middle;
+}
+
+form p{
+    margin: 0px;
+    display: block;
+}
+
+form .btn{
+    margin-top: 5px;
+}
+#orderadd{
+    width: 400px;
+}
+
+#orderadd input{
+    align-items: center;
+}
+
+input.btn.btn-success {
+    margin-top: 10px;
+}
+
+.services{
+    border: black solid 5px;
+    text-align: center;
+
+}
+
+.services li{
+    text-align: left;
+}
+.card-img, .card-img-bottom, .card-img-top {
+    width: 70%;
+    align-content: center;
+}
+
+.firstrow {
+    padding-top: 5px;
+    margin-top: 10px;
+}
+.insiderow{
+	padding-top: 20px;
+}
+h5{
+	text-align: justify;
+	border-width: 1rem;
+}
+
+li{
+	font-size: 1.5rem;
+}
+#map {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 600px;  /* The height is 400 pixels */
+    width: 90%;  /* The width is the width of the web page */
+    margin-left: 5%;
+   }
+
+#mapdiv{
+    width: 45%;
+}
+
+#john{
+    image-rendering: auto;
+    width: 500px;
+}

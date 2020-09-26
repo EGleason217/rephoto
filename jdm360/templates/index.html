@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bodywrapper">
+        {% if request.session.name is defined %}
+                {% include 'loginheader.html' %}
+            {% else %}
+                {% include 'header.html' %}
+        {% endif %}
+
+         <div class="container">
+            <div class=" firstrow row">
+                <div class="col-12">
+                    <h1 class="border-bottom title1">Photography</h1>
+                </div>
+            </div>
+            <div class=" firstrow row">
+                <div class="col-md-5 col-xs-12">
+                    <img src="/static/imgs/01.jpg" class="img-fluid" alt="security camera on a building">
+                </div>
+                <div class="col-md-7 col-xs-12">
+                    <h4 class="anyone">Anyone Can Take Pictures, Professionals Take Photographs</h4>
+                    <br>
+                    <h5>Life is what you make it, so let’s make it. Surround yourself with angels, positive energy,
+                        beautiful people, beautiful souls, clean heart, angel. The first of the month is coming, we have
+                        to get money, we have no choice. It cost money to eat and they don’t want you to eat. Every
+                        chance I get, I water the plants, Lion! Don’t ever play yourself. They will try to close the
+                        door on you, just open it. Major key, don’t fall for the trap, stay focused. It’s the ones
+                        closest to you that want to see you fail. Always remember in the jungle there’s a lot of they in
+                        there, after you overcome they, you will make it to paradise.</h5>
+                    <br>
+                </div>
+            </div>
+            <div class=" firstrow row">
+                <div class="col-12">
+                    <h1 class="border-bottom title1">Drone Photography</h1>
+                    <div class="firstrow row">
+                        <div class="col-md-5 col-xs-12">
+                            <img src="/static/imgs/28_Aerial3.jpg" class="img-fluid"
+                                alt="security camera on a building">
+                        </div>
+                        <div class="col-md-7 col-xs-12">
+                            <h4 class="anyone">Anyone Can Take Pictures, Professionals Take Photographs</h4>
+                            <br>
+                            <h5>Life is what you make it, so let’s make it. Surround yourself with angels, positive
+                                energy,
+                                beautiful people, beautiful souls, clean heart, angel. The first of the month is coming,
+                                we
+                                have
+                                to get money, we have no choice. It cost money to eat and they don’t want you to eat.
+                                Every
+                                chance I get, I water the plants, Lion! Don’t ever play yourself. They will try to close
+                                the
+                                door on you, just open it. Major key, don’t fall for the trap, stay focused. It’s the
+                                ones
+                                closest to you that want to see you fail. Always remember in the jungle there’s a lot of
+                                they in
+                                there, after you overcome they, you will make it to paradise.</h5>
+                        </div>
+                    </div>
+                    <br>
+                    <div class=" firstrow row">
+                        <div class="col-12">
+                            <h1 class="border-bottom title1">Virtual Staging</h1>
+                        </div>
+                    </div>
+                    <div class=" firstrow row">
+                        <div class="col-md-5 col-xs-12">
+                            <img src="/static/imgs/05.jpg" class="img-fluid" alt="security camera on a building">
+                        </div>
+                        <div class="col-md-7 col-xs-12">
+                            <h4 class="anyone">Anyone Can Take Pictures, Professionals Take Photographs</h4>
+                            <br>
+                            <h5>Life is what you make it, so let’s make it. Surround yourself with angels, positive
+                                energy,
+                                beautiful people, beautiful souls, clean heart, angel. The first of the month is coming,
+                                we
+                                have
+                                to get money, we have no choice. It cost money to eat and they don’t want you to eat.
+                                Every
+                                chance I get, I water the plants, Lion! Don’t ever play yourself. They will try to close
+                                the
+                                door on you, just open it. Major key, don’t fall for the trap, stay focused. It’s the
+                                ones
+                                closest to you that want to see you fail. Always remember in the jungle there’s a lot of
+                                they in
+                                there, after you overcome they, you will make it to paradise.</h5>
+                            <br>
+                        </div>
+                    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+</html> -->

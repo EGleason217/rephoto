@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>About Us</title>
+</head>
+
+<body>
+    <div class="bodywrapper">
+        {% if request.session.name is defined %}
+        {% include 'loginheader.html' %}
+        {% else %}
+        {% include 'header.html' %}
+        {% endif %}
+        <div class=" firstrow row">
+            <div class="col-md-6 col-xs-12">
+                <img id="john" src="/static/imgs/AdobeStock_197970023_Preview.jpg" alt="">
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h1>John Medina</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur viverra nisl at hendrerit. Nulla porttitor erat ac nisl scelerisque accumsan nec at turpis. Suspendisse vel eleifend felis, lacinia dictum libero. Etiam vel fringilla purus. In eget elit in eros lobortis hendrerit eget sagittis tortor. Curabitur odio est, auctor a diam ac, ultricies commodo felis. Fusce scelerisque nisi a ex tincidunt, eget fringilla odio mattis. Ut dapibus, massa eu maximus vestibulum, magna enim facilisis neque, feugiat mattis libero ante lacinia neque.
+
+                    Donec ac diam faucibus, pharetra nisl vel, congue lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec fringilla, ligula a egestas tempor, diam diam sollicitudin ligula, eget consequat libero turpis vel urna. Nam sed arcu nisl. Integer et neque eu ligula viverra lacinia et a libero. Nunc commodo nulla eget gravida sollicitudin. Aliquam scelerisque tristique nisi, quis porttitor ex feugiat et.
+                    
+                    Morbi ac pellentesque sem, ac laoreet lorem. Duis vel varius augue, vel vehicula nulla. Duis ut diam elementum, consequat nisl vel, ultrices risus. Aenean rhoncus augue quis tellus lacinia consequat sed non eros. Praesent vel finibus arcu. Mauris sodales libero sit amet arcu volutpat, vitae placerat tortor pretium. Proin lobortis nisi in arcu pellentesque, ac condimentum magna viverra.
+                    
+                    </p>
+
+        </div>
+</body>

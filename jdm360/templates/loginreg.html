@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bodywrapper">
+        {% if request.session.name is defined %}
+        {% include 'loginheader.html' %}
+        {% else %}
+        {% include 'header.html' %}
+        {% endif %}
+        <div id="registration">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/register" method="POST" id="registration">
+                <h1>Registration</h1>
+                {% csrf_token %}
+                <p>First Name</p>
+                <input type="text" name="fname">
+                <p>Last Name</p>
+                <input type="text" name="lname">
+                <p>Email</p>
+                <input type="email" name="email">
+                <p>Password</p>
+                <input type="password" name="password">
+                <p>Confirm Password</p>
+                <input type="password" name="conf_password"><br>
+                <input type="submit" class="btn btn-primary" value="Register">
+            </form>
+        </div>
+        <div id="login">
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                <h1>Login</h1>
+                <p>Email</p>
+                <input type="email" name="email">
+                <p>Password</p>
+                <input type="password" name="password"><br>
+                <input type="submit" class="btn btn-primary" value="Login">
+            </form>
+        </div>
+        </section>
+    </div>
+</body>
